@@ -1,0 +1,19 @@
+.facts-list{
+	list-style-type: none;
+	margin-top:2em;
+
+	li{
+		margin-bottom:.5em;
+		padding:1em;
+		-webkit-border-radius:5px;
+		border-radius: 5px;
+	}
+
+	li:nth-child(even) {
+		background-color: #eeeeee;
+	}
+
+	li:nth-child(odd) {
+		background-color: #dddddd;
+	}
+}

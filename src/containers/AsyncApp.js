@@ -46,22 +46,39 @@ class AsyncApp extends Component {
   render() {
     const { selectedCategory, categories, term, searchFacts, categoryFact } = this.props
     return (
-      <div class="">
-        <TermSearch />
-        {searchFacts.isFetching && <p><img src="https://media.giphy.com/media/8YKstBTN4i68E/giphy.gif" /><br />loading...</p>}
-        {!searchFacts.isFetching && !searchFacts.items && <h3>No results</h3>}
-        {searchFacts.items && searchFacts.items.length > 0 &&
-          <Facts facts={searchFacts.items} />
-        }
-        
-        <div>Select a category <CategoryPicker onChange={this.handleCategoryChange} /></div>
-        
-        <div>Category: {selectedCategory} {selectedCategory && <button onClick={() => this.handleCategoryRefresh(selectedCategory)}>Refresh</button>}</div>
-        
-        {categoryFact.isFetching && <p><img src="https://media.giphy.com/media/8YKstBTN4i68E/giphy.gif" /><br />loading...</p>}
-        {categoryFact.items && categoryFact.items.length > 0 &&
-          <Facts facts={categoryFact.items} />
-        }
+      <div className="container">
+		<div className="row">
+			<div className="col-md-12 text-center">
+				<h1>Chuck Norris API</h1>
+			</div>
+		</div>  
+        <div className="row">
+        	<div className="col-md-6 text-center">
+            <h2>Search for facts</h2>
+                <div className="form-inline">
+              <TermSearch />
+            </div>
+            {searchFacts.isFetching && <p><img src="https://media.giphy.com/media/8YKstBTN4i68E/giphy.gif" /><br />loading...</p>}
+            {!searchFacts.isFetching && !searchFacts.items && <h3>No results</h3>}
+            {searchFacts.items && searchFacts.items.length > 0 &&
+              <div className="text-left">
+                <Facts facts={searchFacts.items} />
+              </div>
+            }
+          	</div>
+        	<div className="col-md-6 text-center">
+            <h2>Get a random fact from a category</h2>
+            <div class="form-inline">
+              <div className="form-group"><label>Select a category</label> <CategoryPicker onChange={this.handleCategoryChange} /> {selectedCategory && <button className="btn btn-primary" onClick={() => this.handleCategoryRefresh(selectedCategory)}>Refresh</button>}</div>
+            </div>
+            {/* <div>Current category: {selectedCategory} </div> */}
+            
+            {categoryFact.isFetching && <p><img src="https://media.giphy.com/media/8YKstBTN4i68E/giphy.gif" /><br />loading...</p>}
+            {categoryFact.items && categoryFact.items.length > 0 &&
+            <Facts facts={categoryFact.items} />
+            }
+        	</div>
+        </div>
       </div>
     )
   }

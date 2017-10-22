@@ -1,0 +1,22 @@
+.facts-list {
+  list-style-type: none;
+  margin-top: 2em;
+}
+
+.facts-list li {
+  margin-bottom: .5em;
+  padding: 1em;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.facts-list li:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+.facts-list li:nth-child(odd) {
+  background-color: #dddddd;
+}
+ 
+
+ /*# sourceMappingURL= facts.css.map */

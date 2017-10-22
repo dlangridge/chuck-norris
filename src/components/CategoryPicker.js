@@ -21,13 +21,13 @@ export default class CategoryPicker extends Component {
 
 		return (
 			<span>
-			<select onChange={e => onChange(e.target.value)} value={value}>
-				{this.state.options.map(option => (
-				<option value={option} key={option}>
-					{option}
-				</option>
-				))}
-			</select>
+				<select className="form-control" onChange={e => onChange(e.target.value)} value={value}>
+					{this.state.options.map(option => (
+					<option value={option} key={option}>
+						{option}
+					</option>
+					))}
+				</select>
 			</span>
 		)
 	}

@@ -6,7 +6,7 @@ let TermSearch = ({ dispatch }) => {
   let input
 
   return (
-    <div>
+    <div className="form-group">
       <form onSubmit={e => {
         e.preventDefault()
         if (!input.value.trim()) {
@@ -15,12 +15,10 @@ let TermSearch = ({ dispatch }) => {
         dispatch(fetchFactsFromSearch(input.value))
         input.value = ''
       }}>
-        <input placeholder="Search Chuck Norris facts" ref={node => {
+        <input className="form-control" placeholder="Search Chuck Norris facts" ref={node => {
           input = node
         }} />
-        <button type="submit">
-          Get Fact
-        </button>
+        <button className="btn btn-primary" type="submit">Get Facts</button>
       </form>
     </div>
   )
